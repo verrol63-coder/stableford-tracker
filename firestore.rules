@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // A "round" is identified by its 5-character code, which acts as a
+    // shared secret — anyone who has the code can read/write it. There's
+    // no login, so keep codes out of public posts.
+    match /rounds/{code} {
+      allow read: if true;
+      allow create: if request.resource.data.holeCount is int
+                    && request.resource.data.holeCount <= 18
+                    && request.resource.data.par is list
+                    && request.resource.data.si is list;
+      allow update: if false; // round metadata is set once at creation
+      allow delete: if false;
+
+      match /players/{playerId} {
+        allow read: if true;
+        allow create, update: if request.resource.data.name is string
+                              && request.resource.data.name.size() < 60
+                              && request.resource.data.handicap is number;
+        allow delete: if false;
+      }
+    }
+
+    // A "competition" groups many rounds (each round = one group/four-ball)
+    // via the round's optional competitionCode field. Same access model as
+    // rounds — the code is the shared secret, no login.
+    match /competitions/{code} {
+      allow read: if true;
+      allow create: if request.resource.data.holeCount is int
+                    && request.resource.data.holeCount <= 18
+                    && request.resource.data.par is list
+                    && request.resource.data.si is list;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

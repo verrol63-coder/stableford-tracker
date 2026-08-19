@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: contain; }
+
+/* @layer components ensures these sit BEFORE the utilities layer in the
+   final stylesheet, so Tailwind utility classes (w-16, flex-1, etc.) always
+   win when combined with these custom classes on the same element. */
+@layer components {
+  .input { border: 1px solid #d1e7dd; border-radius: 0.5rem; padding: 0.5rem 0.75rem; font-size: 0.875rem; width: 100%; outline: none; }
+  .input:focus { border-color: #059669; box-shadow: 0 0 0 2px rgba(5,150,105,0.15); }
+  .label { font-size: 0.75rem; color: #64748b; margin-bottom: 0.25rem; display: block; }
+  .btn-primary { background: #047857; color: white; border-radius: 0.75rem; font-weight: 600; }
+  .btn-primary:active { background: #065f46; }
+  .btn-primary:disabled { opacity: 0.5; }
+  .btn-secondary { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; border-radius: 0.5rem; font-size: 0.8rem; font-weight: 600; padding: 0.5rem 0.75rem; }
+}
