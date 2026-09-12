@@ -431,7 +431,7 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="font-semibold">Vale Royal Abbey Golf Club course</p>
-            <p className="text-xs text-emerald-100">White tees par/stroke-index, loaded in one tap</p>
+            <p className="text-xs text-emerald-100">Men's Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
@@ -1120,7 +1120,7 @@ function SetupScreen({ onStarted, showToast, onBack }) {
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="font-semibold">Vale Royal Abbey Golf Club course</p>
-            <p className="text-xs text-emerald-100">White tees par/stroke-index, loaded in one tap</p>
+            <p className="text-xs text-emerald-100">Men's Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
