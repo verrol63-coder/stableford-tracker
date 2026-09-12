@@ -95,6 +95,33 @@ export const VALE_ROYAL_ABBEY_COURSE = {
   si: [12, 10, 18, 4, 8, 16, 2, 14, 6, 11, 13, 1, 7, 15, 5, 17, 3, 9],
 };
 
+// Quinta do Lago South, Almancil, Algarve. Par & SI shared across Black/
+// Gold/Silver/Green tees — only yardage differs by tee.
+export const QUINTA_DO_LAGO_SOUTH_COURSE = {
+  name: "Quinta do Lago South (all tees)",
+  holeCount: 18,
+  par: [4, 5, 4, 3, 5, 4, 3, 4, 4, 4, 3, 5, 4, 4, 3, 4, 5, 4],
+  si: [13, 7, 5, 17, 1, 9, 15, 3, 11, 6, 16, 12, 18, 2, 8, 14, 4, 10],
+};
+
+// Quinta do Lago North, Almancil, Algarve. Par & SI shared across Black/
+// Gold/Silver/Green tees — only yardage differs by tee.
+export const QUINTA_DO_LAGO_NORTH_COURSE = {
+  name: "Quinta do Lago North (all tees)",
+  holeCount: 18,
+  par: [4, 3, 5, 4, 4, 4, 5, 3, 4, 4, 5, 4, 4, 3, 4, 3, 4, 5],
+  si: [15, 11, 9, 1, 5, 13, 7, 17, 3, 12, 10, 4, 6, 16, 2, 18, 14, 8],
+};
+
+// Vale do Lobo Royal, Vale do Lobo, Algarve. Par & SI shared across White/
+// Yellow/Red tees — only yardage differs by tee.
+export const VALE_DO_LOBO_ROYAL_COURSE = {
+  name: "Vale do Lobo Royal (all tees)",
+  holeCount: 18,
+  par: [5, 4, 4, 4, 5, 4, 3, 4, 3, 4, 5, 4, 4, 4, 4, 3, 4, 4],
+  si: [15, 13, 3, 11, 7, 1, 17, 5, 9, 16, 2, 12, 4, 6, 18, 10, 8, 14],
+};
+
 export function nextSundayISO() {
   const d = new Date();
   const day = d.getDay(); // 0 = Sunday

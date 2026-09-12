@@ -45,6 +45,9 @@ import {
   WREXHAM_FOURBALL,
   WREXHAM_TEE_TIME,
   VALE_ROYAL_ABBEY_COURSE,
+  QUINTA_DO_LAGO_SOUTH_COURSE,
+  QUINTA_DO_LAGO_NORTH_COURSE,
+  VALE_DO_LOBO_ROYAL_COURSE,
   nextSundayISO,
 } from "./stableford";
 
@@ -379,6 +382,21 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
     setName((n) => n || "Vale Royal Abbey Competition");
     showToast("Vale Royal Abbey course loaded");
   }
+  function loadQuintaSouthPreset() {
+    setCourse({ ...QUINTA_DO_LAGO_SOUTH_COURSE, par: [...QUINTA_DO_LAGO_SOUTH_COURSE.par], si: [...QUINTA_DO_LAGO_SOUTH_COURSE.si] });
+    setName((n) => n || "Quinta do Lago South Competition");
+    showToast("Quinta do Lago South course loaded");
+  }
+  function loadQuintaNorthPreset() {
+    setCourse({ ...QUINTA_DO_LAGO_NORTH_COURSE, par: [...QUINTA_DO_LAGO_NORTH_COURSE.par], si: [...QUINTA_DO_LAGO_NORTH_COURSE.si] });
+    setName((n) => n || "Quinta do Lago North Competition");
+    showToast("Quinta do Lago North course loaded");
+  }
+  function loadValeDoLoboRoyalPreset() {
+    setCourse({ ...VALE_DO_LOBO_ROYAL_COURSE, par: [...VALE_DO_LOBO_ROYAL_COURSE.par], si: [...VALE_DO_LOBO_ROYAL_COURSE.si] });
+    setName((n) => n || "Vale do Lobo Royal Competition");
+    showToast("Vale do Lobo Royal course loaded");
+  }
 
   async function createCompetition() {
     if (!name.trim()) return showToast("Give the competition a name");
@@ -434,6 +452,45 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Men's Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago South course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadQuintaSouthPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago North course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadQuintaNorthPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Vale do Lobo Royal course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadValeDoLoboRoyalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>
@@ -1055,6 +1112,18 @@ function SetupScreen({ onStarted, showToast, onBack }) {
     setCourse({ ...VALE_ROYAL_ABBEY_COURSE, par: [...VALE_ROYAL_ABBEY_COURSE.par], si: [...VALE_ROYAL_ABBEY_COURSE.si] });
     showToast("Vale Royal Abbey course loaded");
   }
+  function loadQuintaSouthPreset() {
+    setCourse({ ...QUINTA_DO_LAGO_SOUTH_COURSE, par: [...QUINTA_DO_LAGO_SOUTH_COURSE.par], si: [...QUINTA_DO_LAGO_SOUTH_COURSE.si] });
+    showToast("Quinta do Lago South course loaded");
+  }
+  function loadQuintaNorthPreset() {
+    setCourse({ ...QUINTA_DO_LAGO_NORTH_COURSE, par: [...QUINTA_DO_LAGO_NORTH_COURSE.par], si: [...QUINTA_DO_LAGO_NORTH_COURSE.si] });
+    showToast("Quinta do Lago North course loaded");
+  }
+  function loadValeDoLoboRoyalPreset() {
+    setCourse({ ...VALE_DO_LOBO_ROYAL_COURSE, par: [...VALE_DO_LOBO_ROYAL_COURSE.par], si: [...VALE_DO_LOBO_ROYAL_COURSE.si] });
+    showToast("Vale do Lobo Royal course loaded");
+  }
 
   async function startRound() {
     if (players.length === 0) return showToast("Add at least one player");
@@ -1123,6 +1192,45 @@ function SetupScreen({ onStarted, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Men's Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago South course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadQuintaSouthPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago North course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadQuintaNorthPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Vale do Lobo Royal course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadValeDoLoboRoyalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>
