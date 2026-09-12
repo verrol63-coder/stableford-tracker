@@ -122,6 +122,15 @@ export const VALE_DO_LOBO_ROYAL_COURSE = {
   si: [15, 13, 3, 11, 7, 1, 17, 5, 9, 16, 2, 12, 4, 6, 18, 10, 8, 14],
 };
 
+// Quinta do Lago Laranjal, Almancil, Algarve. Par & SI shared across Black/
+// Gold/Silver/Green/Orange tees — only yardage differs by tee.
+export const LARANJAL_COURSE = {
+  name: "Quinta do Lago Laranjal (all tees)",
+  holeCount: 18,
+  par: [4, 3, 4, 4, 4, 3, 5, 3, 5, 4, 4, 3, 5, 4, 5, 3, 4, 5],
+  si: [15, 11, 5, 9, 3, 17, 1, 13, 7, 6, 18, 10, 16, 4, 8, 2, 14, 12],
+};
+
 export function nextSundayISO() {
   const d = new Date();
   const day = d.getDay(); // 0 = Sunday

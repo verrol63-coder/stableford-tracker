@@ -48,6 +48,7 @@ import {
   QUINTA_DO_LAGO_SOUTH_COURSE,
   QUINTA_DO_LAGO_NORTH_COURSE,
   VALE_DO_LOBO_ROYAL_COURSE,
+  LARANJAL_COURSE,
   nextSundayISO,
 } from "./stableford";
 
@@ -397,6 +398,11 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
     setName((n) => n || "Vale do Lobo Royal Competition");
     showToast("Vale do Lobo Royal course loaded");
   }
+  function loadLaranjalPreset() {
+    setCourse({ ...LARANJAL_COURSE, par: [...LARANJAL_COURSE.par], si: [...LARANJAL_COURSE.si] });
+    setName((n) => n || "Laranjal Competition");
+    showToast("Laranjal course loaded");
+  }
 
   async function createCompetition() {
     if (!name.trim()) return showToast("Give the competition a name");
@@ -491,6 +497,19 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeDoLoboRoyalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago Laranjal course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadLaranjalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>
@@ -1124,6 +1143,10 @@ function SetupScreen({ onStarted, showToast, onBack }) {
     setCourse({ ...VALE_DO_LOBO_ROYAL_COURSE, par: [...VALE_DO_LOBO_ROYAL_COURSE.par], si: [...VALE_DO_LOBO_ROYAL_COURSE.si] });
     showToast("Vale do Lobo Royal course loaded");
   }
+  function loadLaranjalPreset() {
+    setCourse({ ...LARANJAL_COURSE, par: [...LARANJAL_COURSE.par], si: [...LARANJAL_COURSE.si] });
+    showToast("Laranjal course loaded");
+  }
 
   async function startRound() {
     if (players.length === 0) return showToast("Add at least one player");
@@ -1231,6 +1254,19 @@ function SetupScreen({ onStarted, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
           </div>
           <button onClick={loadValeDoLoboRoyalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Quinta do Lago Laranjal course</p>
+            <p className="text-xs text-emerald-100">Par/SI, all tees, loaded in one tap</p>
+          </div>
+          <button onClick={loadLaranjalPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>
