@@ -44,6 +44,7 @@ import {
   WREXHAM_COURSE,
   WREXHAM_FOURBALL,
   WREXHAM_TEE_TIME,
+  VALE_ROYAL_ABBEY_COURSE,
   nextSundayISO,
 } from "./stableford";
 
@@ -373,6 +374,11 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
     setName((n) => n || "Wrexham GC Competition");
     showToast("Wrexham course loaded");
   }
+  function loadValeRoyalAbbeyPreset() {
+    setCourse({ ...VALE_ROYAL_ABBEY_COURSE, par: [...VALE_ROYAL_ABBEY_COURSE.par], si: [...VALE_ROYAL_ABBEY_COURSE.si] });
+    setName((n) => n || "Vale Royal Abbey Competition");
+    showToast("Vale Royal Abbey course loaded");
+  }
 
   async function createCompetition() {
     if (!name.trim()) return showToast("Give the competition a name");
@@ -415,6 +421,19 @@ function HostCompetitionScreen({ onOpenRound, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Yellow tees par/stroke-index, loaded in one tap</p>
           </div>
           <button onClick={loadWrexhamPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Vale Royal Abbey Golf Club course</p>
+            <p className="text-xs text-emerald-100">White tees par/stroke-index, loaded in one tap</p>
+          </div>
+          <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>
@@ -1032,6 +1051,11 @@ function SetupScreen({ onStarted, showToast, onBack }) {
     );
   }
 
+  function loadValeRoyalAbbeyPreset() {
+    setCourse({ ...VALE_ROYAL_ABBEY_COURSE, par: [...VALE_ROYAL_ABBEY_COURSE.par], si: [...VALE_ROYAL_ABBEY_COURSE.si] });
+    showToast("Vale Royal Abbey course loaded");
+  }
+
   async function startRound() {
     if (players.length === 0) return showToast("Add at least one player");
     if (players.some((p) => !p.name.trim())) return showToast("Give every player a name");
@@ -1086,6 +1110,19 @@ function SetupScreen({ onStarted, showToast, onBack }) {
             <p className="text-xs text-emerald-100">Same roster & tee times as your booking bot, yellow tees, next Sunday</p>
           </div>
           <button onClick={loadWrexhamPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
+            Load
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-emerald-700 rounded-2xl shadow-sm p-4 text-white">
+        <p className="text-xs uppercase tracking-wide text-emerald-200 mb-1">Quick start</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-semibold">Vale Royal Abbey Golf Club course</p>
+            <p className="text-xs text-emerald-100">White tees par/stroke-index, loaded in one tap</p>
+          </div>
+          <button onClick={loadValeRoyalAbbeyPreset} className="bg-white text-emerald-700 text-sm font-semibold px-3 py-2 rounded-lg whitespace-nowrap">
             Load
           </button>
         </div>

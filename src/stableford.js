@@ -85,6 +85,14 @@ export const WREXHAM_COURSE = {
 export const WREXHAM_FOURBALL = ["Verrol Skerritt", "Richard Roberts", "Dean Holmes", "Eddie Buckley"];
 export const WREXHAM_TEE_TIME = "07:50 (fallback 08:30)";
 
+// Vale Royal Abbey Golf Club, Whitegate, Cheshire. White tees, par 72.
+export const VALE_ROYAL_ABBEY_COURSE = {
+  name: "Vale Royal Abbey Golf Club (White tees)",
+  holeCount: 18,
+  par: [4, 5, 4, 4, 4, 3, 4, 4, 4, 3, 4, 4, 4, 4, 5, 3, 4, 5],
+  si: [12, 10, 18, 4, 8, 16, 2, 14, 6, 11, 13, 1, 7, 15, 5, 17, 3, 9],
+};
+
 export function nextSundayISO() {
   const d = new Date();
   const day = d.getDay(); // 0 = Sunday
